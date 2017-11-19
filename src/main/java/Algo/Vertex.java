@@ -31,7 +31,7 @@ public class Vertex {
             while (cur.getEdgeAdjacent()!=null) {
                 cur=cur.getEdgeAdjacent();
             }
-            cur.getEdgeAdjacent()=new Edge(id,longueur);
+         //   cur.getEdgeAdjacent()=new Edge(id,longueur);
         }
     }
 }

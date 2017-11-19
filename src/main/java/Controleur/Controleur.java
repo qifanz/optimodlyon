@@ -15,8 +15,14 @@ public class Controleur {
     private Plan plan;
     private List<PointLivraison> pointLivraisons;
     private Tournee tournee;
+    private static Controleur instance;
 
-    public Controleur() {
+    private static Controleur getInstance () {
+        if (instance==null) instance=new Controleur();
+        return instance;
+    }
+
+    private Controleur() {
     }
 
     public void chargerPlan (String filePath)
