@@ -16,8 +16,8 @@ import java.util.Set;
 public class AbstractGraphe {
     private Plan plan;
     private List<PointLivraison> pointLivraisons;
-    private Map<Integer, Map<Integer, Double>> matPlan;
-    private Map<Integer, Map<Integer, Double>> matAbstrait;
+    private Map<Long, Map<Long, Double>> matPlan;
+    private Map<Long, Map<Integer, Double>> matAbstrait;
 
     public AbstractGraphe(Plan plan, List<PointLivraison> pointLivraisons) {
         this.plan = plan;
@@ -25,12 +25,12 @@ public class AbstractGraphe {
         Set<Troncon> troncons = plan.getListeTroncons();
         Set<Noeud> noeuds = plan.getListeNoeuds();
 
-        matPlan=new HashMap<Integer, Map<Integer, Double>>();
-        matAbstrait=new HashMap<Integer, Map<Integer, Double>>();
+        matPlan=new HashMap<Long, Map<Long, Double>>();
+        matAbstrait=new HashMap<Long, Map<Integer, Double>>();
 
 
         for (Noeud noeud:noeuds) {
-            matPlan.put(noeud.getId(),new HashMap<Integer, Double>());
+            matPlan.put(noeud.getId(),new HashMap<Long, Double>());
         }
 
         for (Troncon troncon:troncons) {
