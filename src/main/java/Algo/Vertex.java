@@ -29,4 +29,12 @@ public class Vertex {
         neighbors.add(neighbor);
     }
 
+
+    @Override
+    public String toString() {
+        return "Vertex{" +
+                "idVertex=" + idVertex +
+                ", neighbors=" + neighbors +
+                '}';
+    }
 }

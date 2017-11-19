@@ -22,4 +22,11 @@ public class Edge {
         return longueur;
     }
 
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "vertexAdjacent=" + vertexAdjacent +
+                ", longueur=" + longueur +
+                '}';
+    }
 }
