@@ -19,7 +19,7 @@ public class Dijkstra {
         this.result = new LinkedList<Vertex>();
     }
 
-    public void dijkstra(Vertex src, Vertex target) {
+    public void chercheSolution(Vertex src, Vertex target) {
 
         parent.put(src, src);
 
