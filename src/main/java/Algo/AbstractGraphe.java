@@ -9,8 +9,10 @@ import java.util.*;
  * Created by flavi on 2017/11/18.
  */
 public class AbstractGraphe {
-    private int[][] cout;
-    private int[] duree;
+    private double[][] cout;
+    private double[] duree;
+    private Double[] plageArrivee;
+    private Double[] plageDepart;
     HashMap<Integer, PointLivraison> pointLivraisonMap;
     HashMap<Map.Entry<PointLivraison, PointLivraison>, Itineraire> itinerairesMap;
     Tournee tournee;
@@ -27,41 +29,71 @@ public class AbstractGraphe {
             pointLivraisonMap.put(i++, pointLivraison);
         }
         this.nbSommets = pointLivraisonMap.size();
-        this.cout = new int[nbSommets][nbSommets];
-        this.duree = new int[nbSommets];
-        generateTableCount();
+        this.cout = new double[nbSommets][nbSommets];
+        this.duree = new double[nbSommets];
+        this.plageArrivee = new Double[nbSommets];
+        this.plageDepart = new Double[nbSommets];
+        generateTableCout();
         generateTableDuree();
-
+        generateTablePlageDepart();
+        generateTablePlageArrivee();
     }
 
-    public void generateTableCount() {
+    private void generateTableCout() {
         for (int m = 0; m < cout.length; m++) {
             for (int n = 0; n < cout[m].length; n++) {
                 if (m == n) {
-                    cout[m][n] = 0;
+                    cout[m][n] = Double.MAX_VALUE;
                     continue;
                 }
                 Dijkstra dijkstra = new Dijkstra();
                 dijkstra.chercheDistanceMin(pointLivraisonMap.get(m), pointLivraisonMap.get(n));
                 itinerairesMap.put(new AbstractMap.SimpleEntry<PointLivraison, PointLivraison>(pointLivraisonMap.get(m), pointLivraisonMap.get(n)), dijkstra.getMeilleurItineraire());
-                cout[m][n] = (int) dijkstra.getMeilleurItineraire().getLongueurTotale();
+                cout[m][n] = dijkstra.getMeilleurItineraire().getLongueurTotale() / tournee.getVitesse();
             }
         }
     }
 
-    public void generateTableDuree() {
+    private void generateTableDuree() {
         for (int i = 0; i < cout.length; i++) {
-            duree[i] = (int) pointLivraisonMap.get(i).getDuree();
+            duree[i] = pointLivraisonMap.get(i).getDuree();
+        }
+    }
+
+    private void generateTablePlageDepart() {
+        for (int i = 0; i < nbSommets; i++) {
+            if(pointLivraisonMap.get(i).getFinPlage()!=null)
+                plageDepart[i]=pointLivraisonMap.get(i).getFinPlage();
+            else
+                plageDepart[i]=null;
+        }
+    }
+
+    private void generateTablePlageArrivee() {
+        for (int i = 0; i < nbSommets; i++) {
+            if(pointLivraisonMap.get(i).getDebutPlage()!=null)
+                plageArrivee[i]=pointLivraisonMap.get(i).getDebutPlage();
+            else
+                plageArrivee[i]=null;
         }
     }
 
     public void getItineraire() {
-        TSP tsp = new TSP1();
-        tsp.chercheSolution(1000, nbSommets, cout, duree);
+        long tempsDebut=System.currentTimeMillis();
+        TSP tsp = new TSP3();
+        tsp.chercheSolution(tournee.getHeureDeDepart(),10, nbSommets, cout, duree,plageArrivee,plageDepart);
         for (int i = 0; i < nbSommets - 1; i++) {
             tournee.addItineraire(itinerairesMap.get(new AbstractMap.SimpleEntry<PointLivraison, PointLivraison>(pointLivraisonMap.get(tsp.getMeilleureSolution(i)), pointLivraisonMap.get(tsp.getMeilleureSolution(i + 1)))));
         }
         tournee.addItineraire(itinerairesMap.get(new AbstractMap.SimpleEntry<PointLivraison, PointLivraison>(pointLivraisonMap.get(tsp.getMeilleureSolution(nbSommets - 1)), pointLivraisonMap.get(0))));
+        for (int i = 0; i < nbSommets; i++) {
+            tournee.addHoraireLivraison(pointLivraisonMap.get(tsp.getMeilleureSolution(i)),tsp.getHoraireLivraison().get(i));
+        }
+        System.out.println(tsp.getCoutMeilleureSolution());
+        System.out.println(tournee);
+        System.out.println(System.currentTimeMillis()-tempsDebut);
+
+
     }
 
     public void getItineraireGlouton() {

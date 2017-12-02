@@ -5,15 +5,15 @@ package Modele;
  * Created by flavi on 2017/11/18.
  */
 public class PointLivraison extends Noeud {
-    private double debutPlage;
-    private double finPlage;
+    private Double debutPlage;
+    private Double finPlage;
     private double duree;
 
-    public double getDebutPlage() {
+    public Double getDebutPlage() {
         return debutPlage;
     }
 
-    public double getFinPlage() {
+    public Double getFinPlage() {
         return finPlage;
     }
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-12.5" y="170.5">Modele.PointLivraison</node>
+    <node x="760.0" y="812.5">Modele.Itineraire</node>
+    <node x="1754.0" y="572.5">Vue.FenetrePrincipale</node>
+    <node x="1793.0" y="1290.5">Modele.Plan</node>
+    <node x="-30.0" y="2049.0">Main.main</node>
+    <node x="2365.0" y="92.5">Vue.VuePlan</node>
+    <node x="824.5" y="1264.5">Modele.Troncon</node>
+    <node x="1387.5" y="355.5">Vue.ButtonListener</node>
+    <node x="469.72549019607845" y="838.7254901960785">Controleur.Controleur</node>
+    <node x="718.5" y="79.5">Modele.Tournee</node>
+    <node x="390.0" y="1598.5">Modele.Noeud</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Modele.PointLivraison" target="Modele.Noeud">
+      <point x="0.0" y="109.5" />
+      <point x="160.0" y="1760.0" />
+      <point x="-170.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4636363636363636" x="1995.7058823529414" y="1114.8039215686274" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

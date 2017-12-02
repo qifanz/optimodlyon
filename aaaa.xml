@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<reseau>
+<noeud id="1" x="15992" y="23783"/>
+<noeud id="2" x="17051" y="24097"/>
+<noeud id="3" x="22507" y="37639"/>
+<noeud id="0" x="15992" y="23783"/>
+<noeud id="4" x="17051" y="24097"/>
+
+<troncon destination="1" longueur="100" nomRue="Avenue des Frères Lumière" origine="0"/>
+<troncon destination="2" longueur="30" nomRue="Rue du Docteur Bonhomme" origine="0"/>
+<troncon destination="4" longueur="10" nomRue="Rue Maryse Bastié" origine="0"/>
+<troncon destination="1" longueur="60" nomRue="Avenue des Frères Lumière" origine="2"/>
+<troncon destination="3" longueur="60" nomRue="Rue Maryse Bastié" origine="2"/>
+<troncon destination="1" longueur="10" nomRue="Cours Albert Thomas" origine="3"/>
+<troncon destination="3" longueur="50" nomRue="Rue Charles Richard" origine="4"/>
+</reseau>
+

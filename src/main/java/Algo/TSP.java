@@ -1,5 +1,8 @@
 package Algo;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public interface TSP {
 		
 	/**
@@ -14,16 +17,17 @@ public interface TSP {
 	 * @param cout : cout[i][j] = duree pour aller de i a j, avec 0 <= i < nbSommets et 0 <= j < nbSommets
 	 * @param duree : duree[i] = duree pour visiter le sommet i, avec 0 <= i < nbSommets
 	 */
-	public void chercheSolution(int tpsLimite, int nbSommets, int[][] cout, int[] duree);
+	public void chercheSolution(double heureDeDepart,int tpsLimite, int nbSommets, double[][] cout, double[] duree, Double[] plageArrivee, Double[] plageDepart);
 	
 	/**
 	 * @param i
 	 * @return le sommet visite en i-eme position dans la solution calculee par chercheSolution
 	 */
 	public Integer getMeilleureSolution(int i);
+	public ArrayList<Map.Entry<Double, Double>> getHoraireLivraison();
 	
 	/** 
 	 * @return la duree de la solution calculee par chercheSolution
 	 */
-	public int getCoutMeilleureSolution();
+	public double getCoutMeilleureSolution();
 }

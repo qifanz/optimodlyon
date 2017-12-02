@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-23.5" y="662.0">ChargeurXML</node>
+    <node x="492.5" y="222.0">Vue</node>
+    <node x="809.0" y="462.0">Algo</node>
+    <node x="278.0" y="662.0">Modele</node>
+    <node x="787.0" y="302.0">Controleur</node>
+    <node x="808.5" y="-18.0">Main</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Controleur" target="Modele">
+      <point x="93.0" y="0.0" />
+      <point x="1160.0" y="320.0" />
+      <point x="1160.0" y="668.5714285714286" />
+      <point x="82.0" y="-11.428571428571445" />
+    </edge>
+    <edge source="Algo" target="Algo">
+      <point x="71.0" y="5.714285714285666" />
+      <point x="1080.0" y="485.71428571428567" />
+      <point x="1080.0" y="600.0" />
+      <point x="900.0" y="600.0" />
+      <point x="20.0" y="18.0" />
+    </edge>
+    <edge source="Main" target="Controleur">
+      <point x="0.0" y="18.0" />
+      <point x="0.0" y="-18.0" />
+    </edge>
+    <edge source="Vue" target="Controleur">
+      <point x="0.0" y="-18.0" />
+      <point x="560.0" y="80.0" />
+      <point x="840.0" y="80.0" />
+      <point x="-40.0" y="-18.0" />
+    </edge>
+    <edge source="Controleur" target="Vue">
+      <point x="-93.0" y="-11.428571428571445" />
+      <point x="560.0" y="308.57142857142856" />
+      <point x="0.0" y="18.0" />
+    </edge>
+    <edge source="Modele" target="Modele">
+      <point x="82.0" y="11.428571428571445" />
+      <point x="520.0" y="691.4285714285714" />
+      <point x="520.0" y="760.0" />
+      <point x="400.0" y="760.0" />
+      <point x="40.0" y="18.0" />
+    </edge>
+    <edge source="Vue" target="Vue">
+      <point x="20.0" y="-18.0" />
+      <point x="580.0" y="120.0" />
+      <point x="760.0" y="120.0" />
+      <point x="760.0" y="240.0" />
+      <point x="67.5" y="0.0" />
+    </edge>
+    <edge source="Controleur" target="Algo">
+      <point x="0.0" y="18.0" />
+      <point x="0.0" y="-18.0" />
+    </edge>
+    <edge source="Algo" target="Modele">
+      <point x="-40.0" y="18.0" />
+      <point x="840.0" y="600.0" />
+      <point x="400.0" y="600.0" />
+      <point x="40.0" y="-18.0" />
+    </edge>
+    <edge source="ChargeurXML" target="Modele">
+      <point x="0.0" y="18.0" />
+      <point x="80.0" y="760.0" />
+      <point x="320.0" y="760.0" />
+      <point x="-40.0" y="18.0" />
+    </edge>
+    <edge source="Vue" target="Modele">
+      <point x="-67.5" y="0.0" />
+      <point x="360.0" y="240.0" />
+      <point x="0.0" y="-18.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9999999999999997" x="488.50000000000045" y="405.00000000000017" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
