@@ -24,14 +24,16 @@ public class Glouton {
         return coutMeilleureSolution;
     }
 
-    public List<Integer> chercheSolution(double[][] cout, double[] duree, Double[] plageArrivee, Double[] plageDepart) {
+    public List<Integer> chercheSolution(double heureDeDepart, double[][] cout, double[] duree, Double[] plageArrivee, Double[] plageDepart) {
         List<Integer> res = new ArrayList<Integer>();
         Set<Integer> visited = new HashSet<Integer>();
         int numNodes = cout.length;
         double distanceMin;
         int nextPos = 0;
-        double distance = 0;
+        double distance = heureDeDepart;
         int posCurrent = 0;
+        double arrivee=0;
+        double depart=0;
         visited.add(posCurrent);
         res.add(posCurrent);
         while (visited.size() < numNodes) {
@@ -44,12 +46,12 @@ public class Glouton {
                     double dNei = cout[posCurrent][i];
                     if (dNei < distanceMin) {
                         distanceMin = dNei;
-                        double arrivee=distance+distanceMin;
-                        double depart=arrivee+duree[i];
+                        arrivee=distance+distanceMin;
+                        depart=arrivee+duree[i];
                         if (plageArrivee[i] != null && plageDepart[i] != null) {
                             if (arrivee < plageArrivee[i]) {
                                 arrivee = plageArrivee[i];
-                                depart = arrivee + duree[i];
+                                depart=arrivee+duree[i];
                             } else if (depart > plageDepart[i]) {
                                 continue;
                             }
@@ -58,7 +60,7 @@ public class Glouton {
                     }
                 }
             }
-            distance += distanceMin+duree[nextPos];
+            distance += depart;
             posCurrent = nextPos;
             visited.add(posCurrent);
             res.add(posCurrent);

@@ -9,8 +9,8 @@ import java.util.Iterator;
 
 /**
  * Created by flavi on 2017/11/20.
+ public class main {
  */
-public class main {
     public static void main(String args[]) {
      Controleur controleur = new Controleur();
         controleur.chargerPlan("planLyonGrand.xml");
